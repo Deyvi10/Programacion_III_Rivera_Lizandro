@@ -1,0 +1,61 @@
+# ==============================================================================
+# .gitignore para Monorepo: Node.js + React.js + NestJS
+# ==============================================================================
+
+# 📦 Dependencias (Aplica a todas las subcarpetas automáticamente)
+node_modules/
+/.pnp
+.pnp.js
+
+# 🏗️ Compilaciones y Builds (React, Vite, Next, NestJS)
+dist/
+build/
+compiled/
+.next/
+out/
+.nest/
+
+# 🧪 Testing y Cobertura de Código
+coverage/
+.nyc_output/
+
+# 📝 Logs (Archivos de registro generados por NPM, Yarn o aplicaciones)
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# 🔐 Variables de Entorno y Secretos (¡CRÍTICO!)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.pem
+
+# ⚙️ Archivos temporales de TypeScript y NPM
+*.tsbuildinfo
+.npm/
+eslintcache
+
+# 🍎 Específicos de Sistema Operativo: macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# 🪟 Específicos de Sistema Operativo: Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# 💻 Configuración Local de Editores e IDEs (Recomendado para trabajar en equipo)
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
