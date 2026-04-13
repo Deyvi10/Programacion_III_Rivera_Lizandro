@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enlaces</title>
+</head>
+<body>
+    <h1> Formularios</h1>
+    <form action="/procesar" method="post"> 
+        <table border="1">
+            <tr> 
+
+                <td> 
+                    <label for="nombre"> Nombre </label>
+                    <input type=" text " id="nombre" name="nombre">
+                </td>
+                <td>   
+                    <label for="nombre"> Correo Electronico </label>
+                    <input type="email" id="email" name="email">
+                </td>
+            </tr>
+            <tr> 
+
+                <td> 
+                    <label for="nombre"> Contraseña </label> 
+                    <input type="password" id="password" name="Contraseña"> <br>
+                </td>
+                <td>
+                    <label for="buscar"> Sitio Web </label> 
+                    <input type="url" id="url" name="url">
+                </td>
+                <td>
+                    <label for="buscar"> Telefono </label> 
+                    <input type="tel" id="telefono" name="telefono">
+                </td>
+                <td>
+                    <label for="Buscar">Buscar</label>
+                    <input type="tel" id="telefono" name="buscar">
+                </td>
+            </tr>
+            <!-- Tipo Numéricos -->
+             <tr>
+                    <td>
+                        <label for="edad">Edad</label><br>
+                        <input type="number" id="edad" name="edad" min="0" max="120" step="1">
+                    </td>
+                    <td>
+                        <label for="Volumen">Volumen<span id="val-vol">50</span></label><br></label>
+                        <input type="range" id="volumen" name="volumen" min="0" max="120" value="50"
+                        oninput="document.getElementById('val-vol').textContent=this.value">
+                        
+                    </td>
+                </tr>
+        </table>
+        
+        <button type="submit"> Enviar </button>
+
+
+    </form>
+</body>
+</html>
