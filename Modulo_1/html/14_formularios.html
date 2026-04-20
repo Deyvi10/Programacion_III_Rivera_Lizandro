@@ -1,62 +1,234 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewpoint" content="width-device-width, initial-scale=1.0">
     <title>Enlaces</title>
 </head>
+
+
 <body>
-    <h1> Formularios</h1>
-    <form action="/procesar" method="post"> 
-        <table border="1">
-            <tr> 
+    <h1>Formularios</h1>
+    <form action="/procesar" method="post">
 
-                <td> 
-                    <label for="nombre"> Nombre </label>
-                    <input type=" text " id="nombre" name="nombre">
-                </td>
-                <td>   
-                    <label for="nombre"> Correo Electronico </label>
-                    <input type="email" id="email" name="email">
-                </td>
-            </tr>
-            <tr> 
-
-                <td> 
-                    <label for="nombre"> Contraseña </label> 
-                    <input type="password" id="password" name="Contraseña"> <br>
+        <table>
+            <tr>
+                <td>
+                    <label for="nombre">Nombre</label>
+                    <input type="text" id="nombre" name="nombre">
                 </td>
                 <td>
-                    <label for="buscar"> Sitio Web </label> 
+                    <label for="Nombre">Correo electronico
+                        <input type="email" id="email" name="email">
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="Password">Contraseña</label><br>
+                    <input type="password" id="password" name="password">
+                </td>
+                <td>
+                    <label for="url">Sitio web</label><br>
                     <input type="url" id="url" name="url">
                 </td>
+            </tr>
+
+            <tr>
                 <td>
-                    <label for="buscar"> Telefono </label> 
-                    <input type="tel" id="telefono" name="telefono">
+                    <label for="Password">Contraseña</label><br>
+                    <input type="tel" id="tel" name="tel">
                 </td>
                 <td>
-                    <label for="Buscar">Buscar</label>
-                    <input type="tel" id="telefono" name="buscar">
+                    <label for="Password">Sitio web</label><br>
+                    <input type="url" id="url" name="url">
                 </td>
             </tr>
-            <!-- Tipo Numéricos -->
-             <tr>
-                    <td>
-                        <label for="edad">Edad</label><br>
-                        <input type="number" id="edad" name="edad" min="0" max="120" step="1">
-                    </td>
-                    <td>
-                        <label for="Volumen">Volumen<span id="val-vol">50</span></label><br></label>
-                        <input type="range" id="volumen" name="volumen" min="0" max="120" value="50"
+
+            <!-- tipo numericos -->
+
+            <tr>
+                <td>
+                    <label for="edad">Edad</label><br>
+                    <input type="number" id="edad" name="edad" min="0" max="120" step="1">
+                </td>
+                <td>
+                    <label for="Volumen">Volumen<span id="val-vol">50</span></label><br></label>
+                    <input type="range" id="volumen" name="volumen" min="0" max="120" value="50"
                         oninput="document.getElementById('val-vol').textContent=this.value">
-                        
-                    </td>
-                </tr>
+
+                </td>
+            </tr>
+
+            <!-- tipo fechas -->
+
+            <tr>
+                <td colspan="2">
+                    <h3>Tipos de fecha</h3>>
+                </td>
+
+                <td>
+                    <label for="fecha">Fecha de nacimiento</label><br>
+                    <input type="date" id="fecha" name="fecha">
+                </td>
+                <td>
+                    <label for="hora">Hora de la cita</label><br></label>
+                    <input type="time" id="hora" name="hora">
+                </td>
+            </tr>
+
+            <tr>
+
+                <td>
+                    <label for="evento">Inicio del evento</label><br>
+                    <input type="datetime-local" id="evento" name="evento">
+                </td>
+                <td>
+                    <label for="mes">Mes de inicio</label><br></label>
+                    <input type="month" id="mes" name="mes">
+                </td>
+            </tr>
+
+
+
+            <!-- check box -option -->
+
+            <tr>
+                <td colspan="2">
+                    <h3>checkbox</h3>>
+                </td>
+                <td>
+
+                    <input type="checkbox" id="acepto" name="acepto" value="si">
+                    <label for="acepto">Acepto los terminos y condiciones</label><br>
+                </td>
+                <td>
+                    <fieldset>
+                        <legend>
+                            Metodo de Pago
+                        </legend>
+                        <input type="radio" id="tarjeta" name="pago" value="tarjeta">
+                        <label for="tarjeta">Tarjeta de credito</label>
+                        <input type="radio" id="paypal" name="pago" value="paypal">
+                        <label for="paypal">Tarjeta de credito</label>
+                        <input type="radio" id="transferencia" name="pago" value="transferencia">
+                        <label for="transferencia">Transferencia bancaria</label>
+                    </fieldset>
+                </td>
+            </tr>
+
+            <tr>
+
+                <td>
+                    <label for="evento">Inicio del evento</label><br>
+                    <input type="datetime-local" id="evento" name="evento">
+                </td>
+                <td>
+                    <label for="mes">Mes de inicio</label><br></label>
+                    <input type="mounth" id="mes" name="mes">
+                </td>
+            </tr>
+
+            <!-- utiles -->
+
+            <tr>
+                <td colspan="2">
+                    <h3>Útiles</h3>>
+                </td>
+
+                <td>
+                    <input type="color" id="color" name="color" value="#3b82f6">
+                    <label for="color">Color</label><br>
+                </td>
+                <td>
+                    <input type="file" id="foto" name="foto" value="imagen">
+                    <label for="foto">Fotos de perfil</label><br>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <input type="file" id="docs" name="docs" value=".pdf,.doc,.docx">
+                    <label for="docs">Documentos</label><br>
+                </td>
+                <td>
+
+                    <input type="hidden" id="token" name="token" value="abcd123xyz">
+
+                </td>
+            </tr>
+
+
+            <!-- Text area y select -->
+
+            <tr>
+                <td colspan="2">
+                    <h3>Textarea y select</h3>>
+                </td>
+
+                <td>
+                    <label for="mensaje">Mensaje</label><br>
+                    <textarea id="mensaje" name="mensaje" rows="6" cols="50"
+                        placeholder="Escribe tu mensaje"></textarea>
+                </td>
+
+                <td>
+                    <!-- Select basico-->
+                    <label for="pais">País:</label><br>
+                    <select id="pais" name="pais">
+                        <option value="">Seleccione un pais</option>
+                        <option value="co">Colombia</option>
+                        <option value="ec">Ecuador</option>
+                        <option value="es">España</option>
+                        <option value="ve">Venezuela</option>
+                    </select>
+
+                </td>
+
+                <td>
+                    <!-- Select optgroup -->
+                    <label for="ciudad">Ciudades:</label><br>
+                    <select id="ciudad" name="ciudad">
+                        <optgroup label="España">
+                            <option value="mad">Madrid</option>
+                            <option value="bcn">Barcelona</option>
+                            <option value="sev">Sevilla</option>
+                        </optgroup>
+                        <optgroup label="Mexico">
+                            <option value="cdm">Ciudad de mexico</option>
+                            <option value="glad">Guadalajara</option>
+                        </optgroup>
+                        <optgroup label="Venezuela">
+                            <option value="cor">Coro</option>
+                            <option value="mar">Maracaibo</option>
+                        </optgroup>
+                    </select>
+
+                </td>
+
+                <td>
+                    <!-- Select basico-->
+                    <label for="skill">Habilidades:</label><br>
+                    <select id="skill" name="habilidades[]" multiple size="4">
+                        <option value="html">HTML</option>
+                        <option value="cs3">CSS</option>
+                        <option value="js">Javascript</option>
+                        <option value="tj">Tipescript</option>
+                    </select>
+
+                </td>
+            </tr>
+
+
         </table>
-        
-        <button type="submit"> Enviar </button>
+
+        <button type="submit">Enviar</button> <!--envia el formulario-->
+        <button type="reset">Limpiar</button> <!--limpia los campos-->
+        <button type="button">Aceptar</button> <!--se puede programar-->
 
 
     </form>
 </body>
+
 </html>
