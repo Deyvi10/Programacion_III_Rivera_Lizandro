@@ -1,42 +1,25 @@
-import { Body, Controller, Get,Inject,Param,Post} from '@nestjs/common';
+import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { AppService } from './app.service';
-import { ProductDTO } from './product_dto';
+import { ProductDto } from './product.dto';
 
 @Controller()
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @Get("/health")
-  getHealth(): any {
-    return this.appService.getHealth();
+  getHeath(): any {
+    return this.appService.getHeath();
   }
-
   @Post("/products")
-  createProducto(@Body() product:ProductDTO): ProductDTO {
-    return this.appService.createProducto(product);
+  createProduct(@Body() product: ProductDto): any {
+    return this.appService.createProduct(product);
   }
   @Get("/products")
-  findAll(): ProductDTO[] {
+  findAll(): ProductDto[] {
     return this.appService.findAll();
   }
-
-  @Get("/products")
-  findbyid(@Param('id') id: string,
-    @Body() updatedProduct: ProductoDto: any
-    return this.appService.update{
-      identity,
-      updatedProduct
-    };
-  }
-  
-  @Delete("/products/:id")
-  deleteById(@Param('id') id: string): Product
-  { return this.appService.deleteById(id);
-  }
-
-  @Post("/area-triangulo")
-  areaTriangulo(@Body() data: any): any {
-    return this.appService.areaTriangulo(data)
-  }
-
+  @Get("/products/:id")
+  findAllById(@Param('id') id: string): ProductDto | undefined {
+    return this.appService.findAllById(id);
+  }  
 }
