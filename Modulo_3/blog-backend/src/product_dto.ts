@@ -1,7 +1,6 @@
-export class ProductDto {
+export class ProductDTO{
     id?: number;
     name?: string;
-    categorie?: string;
     price?: number;
     stock?: number;
 }
