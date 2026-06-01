@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listas</title>
+</head>
+<body>
+    <h1> Lista de Definicion</h1>
+    <h2> Glosario HTML</h2>
+    <dl>
+        <dt>HTML</dt>
+        <dd>Hypertext Markup Lenguaje> Lenguaje de marcado para estructurar paginas web</dd>
+        <dt>CSS</dt>
+        <dd>Cascading Style Sheets> Lenguajepara dar estilo a las paginas web</dd>
+        <dt>Etiqueta</dt>
+        <dd>Elemento de marcado por corchetes angualares</dd>
+
+    </dl>
+    <h1> Listas Anidadas</h1>
+    <ol>
+        <li>Frutas
+            <ol type="a">
+                <li>Manzana</li>
+                <li>Pera</li>
+                <li>Naranja</li>
+                <li>Kiwi</li>
+                <li>Fresa
+                    <ul>
+                        <li>Valenacia</li>
+                        <li>Navel</li>
+                    </ul>
+                </li>
+            </ol>
+        </li>
+        <li>Verduras
+            <ol type="a">
+                <li>zanahorias</li>
+                <li> Brocoli</li>
+            </ol>
+        </li>
+    </ol>
+</body>
+</html>

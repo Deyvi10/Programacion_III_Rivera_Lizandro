@@ -1,0 +1,51 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: sans-serif;
+    line-height: 1.5;
+    color: #1e293b;
+    background-color: #f8fafc;
+    padding: 20px;
+}
+
+.banner-oferta {
+    background: #ef4444;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+.etiqueta-nuevo {
+    display: inline-block;
+    background: #10b981;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.menu-movil {
+    display: none;
+    background: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+.menu-movil.activo {
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul,
+ol {
+    list-style: none;
+}

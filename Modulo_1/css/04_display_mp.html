@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Taller - Bedoya Motors</title>
+    <link rel="stylesheet" href="04_display_mp.css">
+</head>
+
+<body>
+    <h1 style="color: #e63946;">Bedoya Motors - Gestión Automotriz</h1>
+    <div class="banner-oferta">Alerta: Stock mínimo alcanzado en filtros de aceite.</div>
+    <div class="etiqueta-nuevo">Orden Prioritaria #405</div>
+    <br>
+    <button class="btn-carrito">Ver Órdenes Asignadas</button>
+    <br>
+
+    <button onclick="toggleMenu()">Menú de Taller</button>
+
+    <div id="menu" class="menu-movil">
+        <ul>
+            <li><a href="#">Catálogo de Repuestos</a></li>
+            <li><a href="#">Facturación (Precios con IVA)</a></li>
+            <li><a href="#">Soporte Técnico</a></li>
+        </ul>
+    </div>
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.classList.toggle('activo');
+        }
+    </script>
+</body>
+
+</html>

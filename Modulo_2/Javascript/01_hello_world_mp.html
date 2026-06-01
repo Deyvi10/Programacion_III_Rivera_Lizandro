@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactividad del Sistema — Bedoya Motors</title>
+</head>
+
+<body>
+
+    <h1>Bedoya Motors — Panel Dinámico de Control</h1>
+
+    <button
+        onclick="alert('¡Alerta de Seguridad! Recuerda que todo superusuario creado vía terminal asume el rol de Administrador.')">
+        Verificar Rol de Usuario
+    </button>
+
+    <br /><br />
+
+    <h1 id="titulo-modulo">Módulo de Inventario</h1>
+    <br />
+    <h1 id="subtitulo-estado">Estado del Servidor:</h1>
+    <br />
+    <h1 id="titulo-alerta">Cargando datos del taller.....</h1>
+
+    <script>
+        // Seleccionamos el elemento por su ID único
+        const tituloAlerta = document.getElementById("titulo-alerta");
+
+        // Modificamos su contenido de texto de forma dinámica
+        tituloAlerta.textContent = "¡Conexión Exitosa con PostgreSQL! Al borrar un usuario se mantiene su historial.";
+
+        console.log("Script interno de Bedoya Motors ejecutado correctamente.");
+        console.log("Monitoreo técnico: Inicializando dashboard...");
+    </script>
+
+    <script src="01_hello_world.js" defer></script>
+
+</body>
+
+</html>

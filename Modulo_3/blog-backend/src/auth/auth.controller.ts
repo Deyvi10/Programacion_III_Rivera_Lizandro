@@ -32,12 +32,3 @@ export class AuthController {
     return new SuccessResponseDto('Registration successful', { access_token: token });
   }
 }
-
-auth.controller: @Post('login')
-  async login(@Body() loginDto: LoginDto) {
-    const token = await this.authService.login(loginDto);
-    if (!token) {
-      throw new UnauthorizedException('Invalid credentials');
-    }
-    return new SuccessResponseDto('Login successful', { access_token: token });
-  }

@@ -1,125 +1,69 @@
-import { Injectable } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
-import { paginate, Pagination } from 'nestjs-typeorm-paginate';
-import { Repository } from 'typeorm';
-import { Post } from './post.entity';
+import {
+  Controller,
+  Post as HttpPost,
+  Get,
+  Param,
+  Delete,
+  Body,
+  Query,
+  NotFoundException,
+  InternalServerErrorException,
+  Put
+} from '@nestjs/common';
+import { PostsService } from './posts.service';
 import { CreatePostDto } from './dto/create-post.dto';
-import { Category } from '../categories/category.entity';
+import { Post as PostEntity } from './post.entity';
+import { Pagination } from 'nestjs-typeorm-paginate';
+import { SuccessResponseDto } from 'src/common/dto/response.dto';
 import { QueryDto } from 'src/common/dto/query.dto';
 
-@Injectable()
-export class PostsService {
-  constructor(
-    @InjectRepository(Post)
-    private postsRepository: Repository<Post>,
-    @InjectRepository(Category)
-    private categoriesRepository: Repository<Category>,
-  ) {}
+@Controller('posts')
+export class PostsController {
+  constructor(private readonly postsService: PostsService) {}
 
-  async create(createPostDto: CreatePostDto): Promise<Post | null> {
-    try {
-      const category = await this.categoriesRepository.findOne({ where: { id: createPostDto.categoryId } });
-      if (!category) return null;
-
-      const post = this.postsRepository.create({
-        title: createPostDto.title,
-        content: createPostDto.content,
-        category: category,
-      });
-
-      return await this.postsRepository.save(post);
-    } catch (err) {
-      console.error('Error creating post:', err);
-      return null;
-    }
+  @HttpPost()
+  async create(@Body() createPostDto: CreatePostDto): Promise<SuccessResponseDto<PostEntity>> {
+    const post = await this.postsService.create(createPostDto);
+    if (!post) throw new NotFoundException('Category not found or error creating post');
+    return new SuccessResponseDto('Post created successfully', post);
   }
 
-  async findAll(queryDto: QueryDto): Promise<Pagination<Post> | null> {
-    try {
-      const { page, limit, search, searchField, sort, order } = queryDto;
-      const queryBuilder = this.postsRepository.createQueryBuilder('post')
-        .leftJoinAndSelect('post.category', 'category');
-
-      if (search) {
-        if (searchField) {
-          switch (searchField) {
-            case 'title':
-              queryBuilder.where('post.title ILIKE :search', {
-                search: `%${search}%`,
-              });
-              break;
-            case 'content':
-              queryBuilder.where('post.content ILIKE :search', {
-                search: `%${search}%`,
-              });
-              break;
-            case 'category':
-              queryBuilder.where('category.name ILIKE :search', {
-                search: `%${search}%`,
-              });
-              break;
-            default:
-              queryBuilder.where(
-                '(post.title ILIKE :search OR post.content ILIKE :search OR category.name ILIKE :search)',
-                { search: `%${search}%` },
-              );
-          }
-        } else {
-          queryBuilder.where(
-            '(post.title ILIKE :search OR post.content ILIKE :search OR category.name ILIKE :search)',
-            { search: `%${search}%` },
-          );
-        }
-      }
-
-      if (sort) {
-        queryBuilder.orderBy(`post.${sort}`, (order ?? 'ASC') as 'ASC' | 'DESC');
-      }
-
-      return await paginate<Post>(queryBuilder, { page, limit });
-    } catch (err) {
-      console.error('Error fetching posts:', err);
-      return null;
+  @Get()
+  async findAll(
+    @Query() query: QueryDto,
+  ): Promise<SuccessResponseDto<Pagination<PostEntity>>> {
+    if (query.limit && query.limit > 100) {
+      query.limit = 100;
     }
+
+    const result = await this.postsService.findAll(query);
+
+    if (!result) throw new InternalServerErrorException('Could not retrieve posts');
+
+    return new SuccessResponseDto('Posts retrieved successfully', result);
   }
 
-  async findOne(id: string): Promise<Post | null> {
-    try {
-      return await this.postsRepository.findOne({ where: { id }, relations: ['category'] });
-    } catch (err) {
-      console.error('Error fetching post:', err);
-      return null;
-    }
+  @Get(':id')
+  async findOne(@Param('id') id: string): Promise<SuccessResponseDto<PostEntity>> {
+    const post = await this.postsService.findOne(id);
+    if (!post) throw new NotFoundException('Post not found');
+    return new SuccessResponseDto('Post retrieved successfully', post);
   }
 
-  async update(id: string, dto: CreatePostDto): Promise<Post | null> {
-    try {
-      const post = await this.findOne(id);
-      if (!post) return null;
-
-      if (dto.categoryId) {
-        const category = await this.categoriesRepository.findOne({ where: { id: dto.categoryId } });
-        if (!category) return null;
-        post.category = category;
-      }
-
-      post.title = dto.title ?? post.title;
-      post.content = dto.content ?? post.content;
-
-      return await this.postsRepository.save(post);
-    } catch (err) {
-      console.error('Error updating post:', err);
-      return null;
-    }
+  @Put(':id')
+  async update(
+    @Param('id') id: string,
+    @Body() updatePostDto: CreatePostDto
+  ): Promise<SuccessResponseDto<PostEntity>> {
+    const updated = await this.postsService.update(id, updatePostDto);
+    if (!updated) throw new NotFoundException('Post not found or category not valid');
+    return new SuccessResponseDto('Post updated successfully', updated);
   }
 
-  async remove(id: string): Promise<boolean> {
-    try {
-      const result = await this.postsRepository.delete(id);
-      return result.affected !== 0;
-    } catch (err) {
-      console.error('Error deleting post:', err);
-      return false;
-    }
+  @Delete(':id')
+  async remove(@Param('id') id: string): Promise<SuccessResponseDto<string>> {
+    const deleted = await this.postsService.remove(id);
+    if (!deleted) throw new NotFoundException('Post not found or could not be deleted');
+    return new SuccessResponseDto('Post deleted successfully', id);
   }
 }

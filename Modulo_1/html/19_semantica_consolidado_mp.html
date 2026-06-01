@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal de Servicios — Bedoya Motors</title>
+    <meta name="description"
+        content="Portal oficial de Bedoya Motors para la consulta de órdenes de trabajo, historial de mantenimiento y soporte técnico automotriz.">
+    <meta name="author" content="Lizandro Rivera - Lead Programmer">
+</head>
+
+<body>
+
+    <header>
+        <a href="/dashboard">
+            <img src="imagenes/logo_bedoya.svg" alt="Bedoya Motors — Panel Principal" width="150">
+        </a>
+        <p>Sistema de Gestión Integrado ERP para Talleres Mecánicos</p>
+    </header>
+
+    <nav aria-label="Navegación principal">
+        <ul>
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="/inventario">Inventario de Repuestos</a></li>
+            <li><a href="/ordenes">Órdenes de Trabajo</a></li>
+            <li><a href="/contacto">Soporte Técnico</a></li>
+        </ul>
+    </nav>
+
+    <nav aria-label="Ruta de navegación">
+        <ol>
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="/ordenes">Órdenes de Trabajo</a></li>
+            <li>Ficha de Orden de Reparación #402</li>
+        </ol>
+    </nav>
+
+    <main>
+
+        <article>
+
+            <header>
+                <h1>Ficha de Trabajo #402: Mantenimiento Mayor - Kia Sportage</h1>
+                <p>
+                    Registrado por: <strong>Técnico Administrador</strong> —
+                    <time datetime="2026-05-31">31 de mayo de 2026</time> —
+                    Tiempo estimado de entrega: 4 horas
+                </p>
+            </header>
+
+            <section>
+                <h2>1. Diagnóstico Inicial y Fallas Reportadas</h2>
+                <p>
+                    El vehículo ingresa al taller con ruidos metálicos en el eje delantero durante el frenado.
+                    Se procede con el desmontaje técnico y la revisión computarizada del sistema ABS mediante terminal.
+                </p>
+                <p>
+                    De acuerdo con los parámetros del sistema, el dashboard de control muestra que el precio total de
+                    los repuestos necesarios ha sido calculado **incluyendo el desglose automático de impuestos (IVA)**.
+                </p>
+            </section>
+
+            <section>
+                <h2>2. Plan de Trabajo a Ejecutar</h2>
+                <ul>
+                    <li>Escaneo electrónico de la Unidad de Control del Motor (<abbr
+                            title="Electronic Control Unit">ECU</abbr>)</li>
+                    <li>Sustitución de pastillas de freno delanteras de cerámica</li>
+                    <li>Rectificación de discos de freno de ambos ejes</li>
+                    <li>Cambio de aceite sintético 5W-30 y filtro de aire del motor</li>
+                    <li>Limpieza técnica de los bornes de la batería y verificación de voltajes</li>
+                    <li>Purga del sistema hidráulico de frenos y adición de líquido DOT 4</li>
+                </ul>
+
+                <details>
+                    <summary>Ver desglose de políticas e integridad de la información</summary>
+                    <p>Cualquier modificación o eliminación de usuarios que interactúen con esta orden no afectará la
+                        integridad de la base de datos PostgreSQL: todos los movimientos históricos y registros
+                        financieros
+                        asociados a la orden #402 se mantendrán intactos para auditoría.</p>
+                </details>
+            </section>
+
+            <section>
+                <h2>3. Equipamiento Requerido en la Bahía de Trabajo</h2>
+                <p>El mecánico asignado debe retirar de bodega los siguientes implementos antes de iniciar:</p>
+                <ol>
+                    <li><strong>Elevador Hidráulico de Postes</strong> — capacidad mínima de 2.5 toneladas</li>
+                    <li><strong>Kit de Llaves de Torque Mecánicas</strong> — calibración según manual de fábrica</li>
+                </ol>
+
+                <aside>
+                    <p><strong>Recordatorio de Seguridad:</strong> El uso de gafas de protección y guantes de nitrilo es
+                        estrictamente obligatorio durante todo el proceso de purga hidráulica.
+                    </p>
+                </aside>
+            </section>
+
+            <footer>
+                <p>Etiquetas del Registro:
+                    <a href="/tag/frenos">Frenos</a>,
+                    <a href="/tag/mantenimiento-preventivo">Mantenimiento Preventivo</a>,
+                    <a href="/tag/kia">Kia Motors</a>
+                </p>
+            </footer>
+
+        </article>
+        <section aria-label="Notas de Seguimiento">
+            <h2>Bitácora de Actualizaciones de la Orden (2)</h2>
+
+            <article>
+                <header>
+                    <strong>Mecánico de Patio - Luis Pérez</strong> —
+                    <time datetime="2026-05-31">31 mayo 2026</time>
+                </header>
+                <p>Desmontaje completado. Se confirma que los discos delanteros admiten una última rectificación.</p>
+            </article>
+
+            <article>
+                <header>
+                    <strong>Jefe de Taller - Marta López</strong> —
+                    <time datetime="2026-05-31">31 mayo 2026</time>
+                </header>
+                <p>Repuestos retirados de bodega con éxito. El inventario se actualizó correctamente con el precio con
+                    impuesto.</p>
+            </article>
+        </section>
+
+    </main>
+    <aside aria-label="Alertas del Sistema">
+        <section>
+            <h2>Alertas de Stock Crítico</h2>
+            <ul>
+                <li><a href="/inventario/alertas">Filtros de Aceite (Bajo Stock - 3 un.)</a></li>
+                <li><a href="/inventario/alertas">Líquido de Frenos DOT 4 (Agotado)</a></li>
+                <li><a href="/inventario/alertas">Bujías Incandescentes (Bajo Stock - 5 un.)</a></li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Suscribirse a Notificaciones por SMS/WhatsApp</h2>
+            <form action="/notificaciones/suscribir/" method="post">
+                <label for="suscr-email">Celular del Cliente:</label>
+                <input type="tel" id="suscr-email" name="telefono" placeholder="Ej. 0999999999" required>
+                <button type="submit">Activar Alertas de Estado</button>
+            </form>
+        </section>
+    </aside>
+
+    <footer>
+        <nav aria-label="Navegación legal y técnica">
+            <ul>
+                <li><a href="/terminos-servicio">Políticas de Garantía del Taller</a></li>
+                <li><a href="/seguridad-datos">Términos de Protección de Datos</a></li>
+                <li><a href="/contacto-soporte">Contactar al Lead Programmer</a></li>
+            </ul>
+        </nav>
+        <p><small>&copy; 2026 Bedoya Motors. Todos los derechos reservados. Todo superusuario creado vía terminal posee
+                el rol de Administrador.</small></p>
+    </footer>
+
+</body>
+
+</html>

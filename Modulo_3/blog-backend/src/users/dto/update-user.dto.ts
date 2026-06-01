@@ -5,7 +5,7 @@ export class UpdateUserDto {
   @IsString()
   username?: string;
 
-  @IsOptional()
+   @IsOptional()
   @IsString()
   email?: string;
 
