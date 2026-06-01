@@ -1,0 +1,46 @@
+:root {
+    --color-primario: #1e3a8a;
+    --color-secundario: #3b82f6;
+    --color-acento: #10b981;
+    --color-fondo: #f1f5f9;
+    --color-texto: #1e293b;
+}
+
+body {
+    line-height: 1.6;
+    font-family: sans-serif;
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    padding: 20px;
+}
+
+.titulo-producto {
+    line-height: 1.2;
+}
+
+.descripcion {
+    font-weight: 400;
+    text-align: left;
+}
+
+.precio-producto {
+    font-weight: bold;
+    color: var(--color-acento);
+}
+
+.precio-original {
+    text-decoration: line-through;
+    color: #94a3b8;
+}
+
+.titulos {
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: bold;
+}
+
+.nota-legal {
+    font-size: 0.8rem;
+    color: #64748b;
+    margin-top: 20px;
+}
