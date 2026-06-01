@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Orden de Trabajo - Bedoya Motors</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 20px;
+            background-color: #f4f6f9;
+        }
+
+        h1 {
+            color: #1e3a8a;
+        }
+
+        h3 {
+            color: #3b82f6;
+            margin-bottom: 5px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #fff;
+        }
+
+        td {
+            padding: 15px;
+            vertical-align: top;
+            border: 1px solid #e2e8f0;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="url"],
+        input[type="tel"],
+        input[type="number"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #cbd5e1;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin-right: 10px;
+            font-weight: bold;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+        }
+
+        button[type="submit"] {
+            background-color: #10b981;
+            color: white;
+        }
+
+        button[type="reset"] {
+            background-color: #ef4444;
+            color: white;
+        }
+
+        button[type="button"] {
+            background-color: #3b82f6;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Bedoya Motors - Ingreso de Orden de Mantenimiento</h1>
+
+    <form action="/ordenes/procesar/" method="post" enctype="multipart/form-data">
+
+        <table>
+            <tr>
+                <td colspan="2">
+                    <h3>1. Datos del Operario / Cliente</h3>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="nombre">Nombre Completo del Cliente</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Ej. Juan Pérez">
+                </td>
+                <td>
+                    <label for="email">Correo Electrónico Corporativo</label>
+                    <input type="email" id="email" name="email" placeholder="cliente@correo.com">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="password">Clave de Acceso Temporal al Portal</label>
+                    <input type="password" id="password" name="password">
+                </td>
+                <td>
+                    <label for="url">Enlace al Historial Externo (Cloudflare/Drive)</label>
+                    <input type="url" id="url" name="url" placeholder="https://">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="tel">Teléfono Móvil de Contacto</label>
+                    <input type="tel" id="tel" name="tel" placeholder="0999999999">
+                </td>
+                <td>
+                    <label for="edad">Kilometraje del Vehículo (en miles)</label>
+                    <input type="number" id="edad" name="edad" min="0" max="500" step="1" value="0">
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2">
+                    <h3>2. Planificación de la Recepción</h3>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="fecha">Fecha de Ingreso al Taller</label>
+                    <input type="date" id="fecha" name="fecha">
+                </td>
+                <td>
+                    <label for="hora">Hora de la Cita Programada</label>
+                    <input type="time" id="hora" name="hora">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="evento">Inicio Estimado del Desmontaje</label>
+                    <input type="datetime-local" id="evento" name="evento">
+                </td>
+                <td>
+                    <label for="mes">Mes Contable del Servicio</label>
+                    <input type="month" id="mes" name="mes">
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2">
+                    <h3>3. Parámetros Técnicos y Métodos de Pago</h3>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="volumen">Nivel de Combustible Actual: <span id="val-vol">50</span>%</label>
+                    <input type="range" id="volumen" name="volumen" min="0" max="100" value="50"
+                        oninput="document.getElementById('val-vol').textContent=this.value">
+                </td>
+                <td>
+                    <fieldset>
+                        <legend><strong>Método de Pago Preferido</strong></legend>
+                        <input type="radio" id="tarjeta" name="pago" value="tarjeta">
+                        <label for="tarjeta" style="display:inline; font-weight:normal;">Tarjeta de Crédito</label><br>
+
+                        <input type="radio" id="paypal" name="pago" value="paypal">
+                        <label for="paypal" style="display:inline; font-weight:normal;">PayPal / Pasarela
+                            Web</label><br>
+
+                        <input type="radio" id="transferencia" name="pago" value="transferencia">
+                        <label for="transferencia" style="display:inline; font-weight:normal;">Transferencia Bancaria
+                            Directa</label>
+                    </fieldset>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" id="acepto" name="acepto" value="si">
+                    <label for="acepto" style="display:inline;">Autorizo pruebas de ruta y acepto los términos de
+                        servicio.</label>
+                </td>
+                <td>
+                    <label for="color">Color Identificador del Vehículo en la Pizarra</label>
+                    <input type="color" id="color" name="color" value="#3b82f6">
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2">
+                    <h3>4. Evidencias del Estado de Recepción</h3>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="foto">Fotografía del Estado del Motor / Carrocería</label>
+                    <input type="file" id="foto" name="foto" accept="image/*">
+                </td>
+                <td>
+                    <label for="docs">Documentación Legal Adjunta (Matrícula / Cédula .pdf)</label>
+                    <input type="file" id="docs" name="docs" accept=".pdf,.doc,.docx">
+
+                    <input type="hidden" id="token" name="token" value="abcd123xyz">
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2">
+                    <h3>5. Diagnóstico de Trabajo y Ubicación del Cliente</h3>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="mensaje">Detalle de Fallas Reportadas por el Mecánico</label>
+                    <textarea id="mensaje" name="mensaje" rows="6"
+                        placeholder="Escribe aquí las observaciones..."></textarea>
+                </td>
+                <td>
+                    <label for="pais">País del Concesionario Fabricante:</label>
+                    <select id="pais" name="pais">
+                        <option value="">Seleccione una opción</option>
+                        <option value="co">Colombia</option>
+                        <option value="ec" selected>Ecuador</option>
+                        <option value="es">España</option>
+                        <option value="ve">Venezuela</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="ciudad">Ciudad de la Sucursal de Destino:</label>
+                    <select id="ciudad" name="ciudad">
+                        <optgroup label="Ecuador">
+                            <option value="uio">Quito</option>
+                            <option value="gye">Guayaquil</option>
+                            <option value="amb">Ambato</option>
+                        </optgroup>
+                        <optgroup label="España">
+                            <option value="mad">Madrid</option>
+                            <option value="bcn">Barcelona</option>
+                        </optgroup>
+                    </select>
+                </td>
+                <td>
+                    <label for="skill">Sistemas Especializados a Revisar (Mantén presionado Ctrl):</label>
+                    <select id="skill" name="habilidades[]" multiple size="4">
+                        <option value="html">Inyección Electrónica</option>
+                        <option value="cs3">Sistema de Frenos (ABS)</option>
+                        <option value="js">Transmisión Automática</option>
+                        <option value="tj">Climatización / Aire Acondicionado</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+
+        <br>
+        <button type="submit">Registrar Orden de Trabajo</button>
+        <button type="reset">Limpiar Campos</button>
+        <button type="button" onclick="alert('Orden pre-aprobada temporalmente')">Pre-Aprobar</button>
+
+    </form>
+</body>
+
+</html>

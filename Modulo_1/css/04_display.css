@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cursos Online</title>
+    <link rel="stylesheet" href="04_display_mp.css">
+    <link rel="stylesheet" href="04_reset.css">
+
+
+</head>
+<body>
+    <h1 style="color: #e63946;">ACADEMIA</h1>
+    <div class="banner-oferta">🔥 ¡Inscríbete ahora: 50% de descuento!</div>
+    <div class="etiqueta-nuevo"> Curso Destacado </div>
+    <br>
+    <button class="btn-carrito"> 🎓 Mis Cursos </button>
+    <br>
+    
+    
+    <button onclick="toggleMenu()">Menú</button>
+    
+    <div id="menu" class="menu-movil">
+        <ul>
+            <li><a href="#">Catálogo</a></li>
+            <li><a href="#">Mis Notas</a></li>
+            <li><a href="#">Soporte</a></li>
+
+        </ul>
+    </div>
+    <script>
+        function toggleMenu(){
+            const menu = document.getElementById('menu')
+            menu.classList.toggle('activo')
+        }
+    </script>
+    <div class="menu-movil.activo"></div>
+    
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resaltado</title>
+</head>
+<body>
+    <h1> Énfasis y Resaltado </h1>
+    <h2> Primera Seccion</h2>
+    <!-- 
+        Strong permite realizar negrita dentro de una etiqueta de texto
+    -->
+    <p><strong>JavaScript:</strong> Es un lenguaje interpretado </p>
+    <!--
+        <em> cursiva
+    -->
+    <p> La palabra <em> sostenibilidad </em>es clave en el debate</p>
+    <p> El proyecto <em> debe </em>wntregarse antes de la casa abierta</p>
+    <!--
+        <b> Subrayado
+    -->
+        <!--
+        <mark> Subrayado
+    -->
+    <p><b> React</b> es un <em> Framework </em>para el frontend basado en <mark> JavaScript</mark></p>
+    <!--
+        <small> Subrayado
+    -->
+    <p><small> copyright 2026. Todos los derechos reservados </small></p>
+    
+    <p>Superindice X <sub>2</sub>+X+1 area del cuadrado es> 10 <sub>2</sub></p>
+    <p>Subindice base<sub>10</sub></p>
+
+    <p>Tachado: El precio era <del>$252</del>y ahora es<ins> $230 </ins></p>
+
+</body>
+</html>

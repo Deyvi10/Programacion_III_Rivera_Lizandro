@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validación de Datos - Bedoya Motors</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+
+        fieldset {
+            margin-bottom: 15px;
+            border: 1px solid #cbd5e1;
+            padding: 10px;
+        }
+
+        legend {
+            font-weight: bold;
+            color: #1e3a8a;
+        }
+
+        input:invalid {
+            border: 2px solid #ef4444;
+        }
+
+        /* Resalta errores en tiempo real */
+    </style>
+</head>
+
+<body>
+    <h1>Bedoya Motors - Validación de Formulario</h1>
+    <form action="/procesar" method="post">
+
+        <fieldset>
+            <legend>Campo Obligatorio (Required)</legend>
+            <label for="nombre">Nombre Completo:</label><br>
+            <input type="text" id="nombre" name="nombre" required placeholder="Obligatorio">
+        </fieldset>
+
+        <fieldset>
+            <legend>Límites de Caracteres (minlength/maxlength)</legend>
+            <label for="apellido">Apellido (mínimo 3, máximo 20 letras):</label><br>
+            <input type="text" id="apellido" name="apellido" minlength="3" maxlength="20">
+        </fieldset>
+
+        <fieldset>
+            <legend>Patrón de Caracteres (RegEx)</legend>
+            <label for="codigo_postal">Código Postal (5 números exactos):</label><br>
+            <input type="text" id="codigo_postal" name="codigo_postal" pattern="[0-9]{5}"
+                title="Debe contener 5 dígitos numéricos">
+        </fieldset>
+
+        <fieldset>
+            <legend>Rango Numérico (min/max)</legend>
+            <label for="edad">Edad del Cliente (18 - 99 años):</label><br>
+            <input type="number" id="edad" name="edad" min="18" max="99">
+        </fieldset>
+
+        <fieldset>
+            <legend>Deshabilitado (disabled)</legend>
+            <label for="ref">Referencia de Sistema (No editable):</label><br>
+            <input type="text" id="ref" name="ref" value="REF-001" disabled>
+        </fieldset>
+
+        <fieldset>
+            <legend>Solo Lectura (readonly)</legend>
+            <label for="pais">País de origen:</label><br>
+            <input type="text" id="pais" name="pais" value="Ecuador" readonly>
+        </fieldset>
+
+        <button type="submit">Enviar Registro</button>
+
+    </form>
+</body>
+
+</html>
