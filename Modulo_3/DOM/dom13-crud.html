@@ -1,0 +1,95 @@
+html: 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manipulación del DOM</title>
+    <script src="dom13-crud.js" defer></script>
+    <style>
+        body{
+        font-family: Arial, sans-serif;
+        margin: 20 px;
+        }
+        h2{
+            color: black;
+        }
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td{
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th{
+            background-color: aliceblue;
+        }
+        tr{
+            background-color: antiquewhite;
+        }
+        tr:nth-child(even){
+            background-color: azure;
+        }
+        .formulario{
+            background-color: aquamarine;
+            border: 1px solid #b0fce8;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .formulario input{
+            width: 100px;
+            padding: 5px;
+            margin-bottom: 8px;
+            
+           
+        }
+        .btn-agregar:hover{
+            background-color: rgb(8, 104, 72);
+            color: white;
+        }
+        .btn-cancelar:hover{
+            background-color: red ;
+            color: white
+        }
+    
+    </style>
+</head>
+
+<body>
+    
+    <h1 id="titulo">Eventos del DOM</h1>
+    <h2>CRUD de Productos</h2>
+    <div class="formulario">
+        <h3>Agregar nuevo producto</h3>
+        <label for="nombre">Nombre:</label>
+        <input id="nombre" type="text" placeholder="Ponga su nombre porfavor">
+        <label for="apellido">Apellido:</label>
+        <input id="apellido" type="text" placeholder="Ponga su apellid porfavor">
+        <label for="sueldo">Precio:</label>
+        <input id="precio" type="number" placeholder="Precio del producto">
+        <button id="btn_agregar" class="btn-agregar">Agregar Producto</button>
+        <button id="btn_cancelar" class="btn-cancelar">Cancelar</button>
+    </div>
+
+    <table>
+        <thread>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Descipción</th>
+                <th>Precio</th>
+                <th>Acciones</th>
+            </tr>
+        </thread>
+        <tbody id="cuerpoTabla">
+        
+        </tbody>
+    </table>
+
+</body>
+
+</html>
