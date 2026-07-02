@@ -1,8 +1,7 @@
 // src/App.tsx
 
-//import Stopwatch        from './components/Stopwatch'
-//import PreviousValue from './components/PreviousValue'
-import InlineEditor from './components/InlineEditor'
+import AutoFocusForm    from './components/AutoFocusForm'
+// import Stopwatch        from './components/Stopwatch'
 // import FilterableList   from './components/FilterableList'
 // import ProductAnalytics from './components/ProductAnalytics'
 
@@ -13,11 +12,14 @@ import InlineEditor from './components/InlineEditor'
 // │  3  FilterableList   — useCallback: función estable para hijo       │
 // │  4  ProductAnalytics — useMemo: stats y filtro memoizados           │
 // └──────────────────────────────────────────────────────────────────────┘
-const PASO = 3
+const PASO = 1
 
 export default function App() {
   const content =
-    PASO === 3 ? <InlineEditor /> :
+    PASO === 1 ? <AutoFocusForm /> :
+    PASO === 2 ? <Stopwatch /> :
+    PASO === 3 ? <FilterableList /> :
+    PASO === 4 ? <ProductAnalytics /> :
     <p style={{ color: '#e00' }}>Paso {PASO}: crea el componente primero</p>
 
   return (
