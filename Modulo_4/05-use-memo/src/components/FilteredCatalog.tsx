@@ -1,3 +1,4 @@
+
 // src/components/FilteredCatalog.tsx
 
 import { useState, useMemo } from 'react'
