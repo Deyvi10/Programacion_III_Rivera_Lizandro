@@ -1,24 +1,36 @@
 // src/App.tsx
 
 import WelcomeBanner       from './components/WelcomeBanner'
-import UserGreeting        from './components/UserGreeting'
-import CurrentDateDisplay  from './components/CurrentDateDisplay'
-import ColoredBox          from './components/ColoredBox'
-import ConditionalGreeting from './components/ConditionalGreeting'
-import FruitList           from './components/FruitList'
-import PriceTag            from './components/PriceTag'
-import StatusBadge         from './components/StatusBadge'
-import MiniProfileCard     from './components/MiniProfileCard'
-import SimpleInfoTable     from './components/SimpleInfoTable'
-// import ProductCard         from './components/ProductCard'
-// import ProductCatalogList  from './components/ProductCatalogList'
-// import UserProfileCard     from './components/UserProfileCard'
 
+import UserGreeting        from './components/UserGreeting'
+
+import CurrentDateDisplay  from './components/CurrentDateDisplay'
+
+import ColoredBox          from './components/ColoredBox'
+
+import ConditionalGreeting from './components/ConditionalGreeting'
+
+import FruitList           from './components/FruitList'
+
+import PriceTag            from './components/PriceTag'
+
+import StatusBadge         from './components/StatusBadge'
+
+import MiniProfileCard     from './components/MiniProfileCard'
+
+import SimpleInfoTable     from './components/SimpleInfoTable'
+
+/*
+import ProductCard         from './components/ProductCard'
+import ProductCatalogList  from './components/ProductCatalogList'
+import UserProfileCard     from './components/UserProfileCard'
+*/
 // ┌──────────────────────────────────────────────────────────────────────────┐
 // │  Cambia PASO y guarda (Ctrl+S) para navegar entre componentes.          │
 // │   1  WelcomeBanner       — banner estático sin props                    │
 // │   2  UserGreeting        — props string + cálculo de iniciales          │
 // │   3  CurrentDateDisplay  — fecha calculada al renderizar                │
+
 // │   4  ColoredBox          — estilos dinámicos con props numéricas        │
 // │   5  ConditionalGreeting — renderizado condicional + tipo unión         │
 // │   6  FruitList           — lista tipada con .map()                      │
@@ -30,12 +42,16 @@ import SimpleInfoTable     from './components/SimpleInfoTable'
 // │  12  ProductCatalogList  — lista con renderizado condicional de items   │
 // │  13  UserProfileCard     — ejercicio: props complejas + rol             │
 // └──────────────────────────────────────────────────────────────────────────┘
-const PASO = 2
+const PASO = 11
+
 
 const fruits = [
   { name: 'Manzana', emoji: '🍎', calories: 52 },
   { name: 'Banana',  emoji: '🍌', calories: 89 },
   { name: 'Naranja', emoji: '🍊', calories: 47 },
+  { name: 'Kiwi', emoji: '🥝', calories: 61 },
+  { name: 'Pera', emoji: '🍐', calories: 57 },
+  { name: 'Aguacate', emoji: '🥑', calories: 27 },
 ]
 
 const catalog = [
@@ -47,24 +63,33 @@ const catalog = [
 
 export default function App() {
   const content =
-    PASO === 1 ? <WelcomeBanner subtitle="programacion 3" /> : 
+    PASO ===  1 ? <WelcomeBanner subtitle='Programadores Estrellas'/> :
+    
     PASO ===  2 ? <UserGreeting name="Ana García" occupation="Desarrolladora Frontend" /> :
+
+   
     PASO ===  3 ? <CurrentDateDisplay /> :
+     
     PASO ===  4 ? (
       <div style={{ display: 'flex', gap: 12 }}>
-        <ColoredBox color="#0070f3" label="Primary" />
-        <ColoredBox color="#22c55e" label="Success" />
-        <ColoredBox color="#e00"    label="Danger" />
+        <ColoredBox color="#f59e0b" label="Primary" width={120} height={40} />
+        <ColoredBox color="#8b5cf6" label="Success" />
+        <ColoredBox color="#ec4899"  borderRadius={50}/>
+        
       </div>
     ) :
-    PASO ===  5 ? <ConditionalGreeting isLoggedIn={true} userName="Ana" timeOfDay="afternoon" /> :
+   
+    PASO ===  5 ? <ConditionalGreeting isLoggedIn={false} userName="Carlos" timeOfDay="morning" /> :
+ 
     PASO ===  6 ? <FruitList fruits={fruits} title="Frutas favoritas" /> :
+
     PASO ===  7 ? (
       <div style={{ display: 'flex', gap: 24, alignItems: 'flex-end' }}>
         <PriceTag amount={99.99} currency="USD" />
         <PriceTag amount={99.99} currency="USD" discountPercent={20} />
       </div>
     ) :
+           
     PASO ===  8 ? (
       <div style={{ display: 'flex', gap: 8 }}>
         <StatusBadge status="active" />
@@ -73,6 +98,7 @@ export default function App() {
         <StatusBadge status="inactive" />
       </div>
     ) :
+    
     PASO ===  9 ? (
       <MiniProfileCard
         fullName="Ana García"
@@ -82,6 +108,7 @@ export default function App() {
         joinedYear={2019}
       />
     ) :
+    
     PASO === 10 ? (
       <SimpleInfoTable
         title="Resumen del pedido"
@@ -92,18 +119,10 @@ export default function App() {
         ]}
       />
     ) :
-    // PASO === 11 ? <ProductCard title="Teclado inalámbrico" description="Bluetooth 5.0, retroiluminado" highlighted /> :
-    // PASO === 12 ? <ProductCatalogList products={catalog} title="Productos disponibles" /> :
-    // PASO === 13 ? (
-    //   <UserProfileCard
-    //     fullName="Ana García"
-    //     email="ana@ejemplo.com"
-    //     role="admin"
-    //     isActive={true}
-    //     skills={['TypeScript', 'React', 'Node.js']}
-    //     bio="Desarrolladora fullstack con 5 años de experiencia."
-    //   />
-    // ) :
+   
+    PASO === 11 ? <VehiculosTable title="Teclado inalámbrico" description="Bluetooth 5.0, retroiluminado" highlighted /> :
+
+    
     <p style={{ color: '#e00' }}>Paso {PASO}: crea el componente primero</p>
 
   return (

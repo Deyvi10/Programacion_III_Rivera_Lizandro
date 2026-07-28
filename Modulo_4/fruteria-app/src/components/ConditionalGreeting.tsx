@@ -17,6 +17,7 @@ export default function ConditionalGreeting({
     morning:   'Buenos días',
     afternoon: 'Buenas tardes',
     evening:   'Buenas noches',
+    
   }
 
   if (!isLoggedIn) {

@@ -17,13 +17,35 @@ export default function InlineStyleDemo() {
     fontWeight: 800,
   }
 
+  const card2: CSSProperties = {
+    border:       '1px solid var(--border)',
+    background:   '#e0f7fa',
+    borderRadius: 10,
+    padding:      16,
+  }
+
+  const title2: CSSProperties = {
+    margin:     '0 0 8px 0',
+    color:      '#2f3542',
+    fontWeight: 800,
+  }
+
   return (
-    <div style={card}>
+    <><div style={card}>
       <h3 style={title}>Inline styles</h3>
       <p style={{ margin: 0, color: 'var(--muted)' }}>
         Estilos como objetos JS dentro del componente. Útil para valores dinámicos
         pero sin soporte de pseudo-clases (<code>:hover</code>) ni media queries.
       </p>
     </div>
+
+    <div style={card2}>
+      <h3 style={title2}>Inline styles</h3>
+      <p style={{ margin: 0, color: 'var(--muted)' }}>
+        Estilos como objetos JS dentro del componente. Útil para valores dinámicos
+        pero sin soporte de pseudo-clases (<code>:hover</code>) ni media queries.
+      </p>
+    </div>
+    </>
   )
 }

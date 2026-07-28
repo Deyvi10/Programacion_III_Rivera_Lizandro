@@ -5,8 +5,8 @@ import type { CSSProperties } from 'react'
 
 interface UseStylesReturn {
   style:    CSSProperties
+  setBackground: (background: string) => void
   setColor: (color: string) => void
-  setBackgroundColor: (color: string) => void
   setSize:  (size: number) => void
   setBold:  (bold: boolean) => void
   reset:    () => void
@@ -16,7 +16,6 @@ const DEFAULT: CSSProperties = {
   color:      '#111827',
   fontSize:   16,
   fontWeight: 400,
-  backgroundColor: '#5184f1'
 }
 
 export function useStyles(
@@ -28,8 +27,8 @@ export function useStyles(
     setStyle(prev => ({ ...prev, color }))
   }, [])
 
-  const setBackgroundColor = useCallback((backgroundColor: string) => {
-    setStyle(prev => ({ ...prev, backgroundColor }))
+  const setBackground = useCallback((background: string) => {
+    setStyle(prev => ({ ...prev, background }))
   }, [])
 
   const setSize = useCallback((size: number) => {
@@ -42,5 +41,5 @@ export function useStyles(
 
   const reset = useCallback(() => setStyle(initial), [initial])
 
-  return { style, setColor, setSize, setBold, setBackgroundColor, reset }
+  return { style, setBackground, setColor, setSize, setBold, reset }
 }

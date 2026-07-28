@@ -20,7 +20,7 @@ import './theme/theme.css'
 // │  6  HoverDemo            — hook useHover para efectos hover         │
 // │  7  ThemePanel           — Context + CSS variables para theming     │
 // └──────────────────────────────────────────────────────────────────────┘
-const PASO = 7
+const PASO = 1
 
 export default function App() {
   const content =

@@ -16,15 +16,19 @@ export default function DigitalCounter({
   const [count, setCount] = useState(initialValue)
 
   function increment() {
-    setCount((prev) => prev + step)
+    setCount((prev) => prev + 1)
+    console.log('render', count)
+
   }
 
   function decrement() {
     setCount(count - step)
+    console.log('render', count)
   }
 
   function reset() {
     setCount(initialValue)
+    console.log('render', count)
   }
 
   return (

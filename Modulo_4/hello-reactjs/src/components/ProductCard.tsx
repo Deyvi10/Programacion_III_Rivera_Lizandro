@@ -9,9 +9,10 @@ interface ProductCardProps {
 
 export default function ProductCard({
   title,
-  description = 'Sin descripción',
+  description = '',
   highlighted = false,
-  price=0
+  price = 0,
+  
 }: ProductCardProps) {
   return (
     <div
@@ -24,8 +25,8 @@ export default function ProductCard({
       }}
     >
       <h3 style={{ margin: '0 0 8px' }}>{title}</h3>
-      <p style={{ margin: 0, color: '#555' }}>{description}</p>
-      <p style={{ margin: 0, color: '#555' }}>{price}</p>
+      <p style={{ margin: 0, color: '#555' }}>{description || 'Sin descripción'}</p>
+      <p style={{ margin: 0, color: '#555' }}>Precio: ${price.toFixed(2)}</p>
     </div>
   )
 }

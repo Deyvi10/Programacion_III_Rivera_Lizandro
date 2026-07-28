@@ -12,13 +12,12 @@ export default function TaskManager() {
   const [input, setInput] = useState('')
   const [title, setTitle] = useState('')
 
-
   // AGREGAR — spread del array anterior más el nuevo item
   function addTask() {
     if (!input.trim()) return
     setTasks((prev) => [
       ...prev,
-      { id: Date.now(), text: input.trim(), title: title.trim(), done: false },
+      { id: Date.now(), text: input.trim(), done: false, title: title.trim() },
     ])
     setInput('')
     setTitle('')
@@ -42,20 +41,19 @@ export default function TaskManager() {
     <div style={{ maxWidth: 380 }}>
       <div style={{ display: 'flex', gap: 8, marginBottom: 16 }}>
         <input
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          onKeyDown={(e) => e.key === 'Enter' && addTask()}
+          placeholder="Titulo de la tarea..."
+          style={{ flex: 1, padding: '8px 12px', borderRadius: 6, border: '1px solid #ddd' }}
+        />
+        <input
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={(e) => e.key === 'Enter' && addTask()}
           placeholder="Nueva tarea..."
           style={{ flex: 1, padding: '8px 12px', borderRadius: 6, border: '1px solid #ddd' }}
         />
-        <input
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          onKeyDown={(e) => e.key === 'Enter' && addTask()}
-          placeholder='Ingrese el tilulo'
-          style={{ flex: 1, padding: '8px 12px', borderRadius: 6, border: '1px solid #ddd' }}
-        />
-
         <button
           onClick={addTask}
           style={{ padding: '8px 16px', background: '#0070f3', color: '#fff', border: 'none', borderRadius: 6, cursor: 'pointer' }}
@@ -85,15 +83,28 @@ export default function TaskManager() {
               checked={task.done}
               onChange={() => toggleTask(task.id)}
             />
-            <span
-              style={{
-                flex: 1,
-                textDecoration: task.done ? 'line-through' : 'none',
-                color: task.done ? '#aaa' : '#333',
-              }}
-            >
-              {task.text}
-            </span>
+            <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 2 }}>
+              <span
+                style={{
+                  fontWeight: 'bold',
+                  fontSize: 15,
+                  textDecoration: task.done ? 'line-through' : 'none',
+                  color: task.done ? '#aaa' : '#111',
+                }}
+              >
+                {task.title}
+              </span>
+              <span
+                style={{
+                  fontSize: 13,
+                  textDecoration: task.done ? 'line-through' : 'none',
+                  color: task.done ? '#ccc' : '#666',
+                }}
+              >
+                {task.text}
+              </span>
+            </div>
+            
             <button
               onClick={() => removeTask(task.id)}
               style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#e00', fontSize: 16 }}

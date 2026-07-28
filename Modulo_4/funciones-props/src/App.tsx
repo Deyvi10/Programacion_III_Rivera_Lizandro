@@ -1,9 +1,12 @@
+// src/App.tsx
+
 import { useState } from 'react'
 import DigitalCounter      from './components/DigitalCounter'
-import SafeCounter         from './components/SafeCounter'
 import UserProfileForm     from './components/UserProfileForm'
 import TaskManager         from './components/TaskManager'
-import ShoppingCartSummary from './components/ShoppingCartSummary'
+import SafeCounter from './components/SafeCounter'
+
+
 // ┌──────────────────────────────────────────────────────────────────────┐
 // │  Cambia PASO y guarda (Ctrl+S) para navegar entre componentes.      │
 // │  1  DigitalCounter    — estado numérico con step y reset            │
@@ -12,7 +15,7 @@ import ShoppingCartSummary from './components/ShoppingCartSummary'
 // │  4  TaskManager       — estado con array: filter, map, spread       │
 // │  5  Carrito useState  — array de objetos + lógica en App.tsx        │
 // └──────────────────────────────────────────────────────────────────────┘
-const PASO = 5
+const PASO = 6
 
 interface CartItem { id: number; name: string; price: number }
 
@@ -40,8 +43,7 @@ export default function App() {
     PASO === 2 ? <SafeCounter /> :
     PASO === 3 ? <UserProfileForm /> :
     PASO === 4 ? <TaskManager /> :
-    
-    
+  
     PASO === 5 ? (
       <>
         <h1 style={{ fontSize: 22 }}>Tienda</h1>
@@ -58,9 +60,7 @@ export default function App() {
         </section>
         <ShoppingCartSummary items={cartItems} onClearCart={handleClearCart} />
       </>
-    ) :
-
-
+    ) : 
     <p style={{ color: '#e00' }}>Paso {PASO}: crea el componente primero</p>
 
   return (
