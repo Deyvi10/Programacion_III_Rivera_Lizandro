@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taller Mecánico - CRUD de Vehículos</title>
+    <script src="dom12-crud-productos_mp.js" defer></script>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h2 { color: #333; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #4CAF50; color: white; }
+        tr { background-color: #f2f2f2; }
+        tr:nth-child(even) { background-color: #ddd; }
+        .formulario { background-color: #e8f5e9; border: 1px solid #c8e6c9; padding: 20px; margin-top: 20px; }
+        .formulario input { width: 150px; padding: 5px; margin-bottom: 8px; }
+        .btn-agregar { padding: 6px 12px; background-color: #4CAF50; color: white; border: none; cursor: pointer; }
+        .btn-agregar:hover { background-color: #45a049; }
+        .btn-eliminar { padding: 4px 8px; background-color: #f44336; color: white; border: none; cursor: pointer; }
+        .btn-editar { padding: 4px 8px; background-color: #2196F3; color: white; border: none; cursor: pointer; }
+    </style>
+</head>
+
+<body>
+    <h1>Taller Mecánico</h1>
+    <h2>CRUD de Vehículos</h2>
+
+    <div class="formulario">
+        <h3>Agregar nuevo vehículo</h3>
+        <label for="placa">Placa:</label>
+        <input id="placa" type="text" placeholder="Placa">
+        <label for="marca">Marca:</label>
+        <input id="marca" type="text" placeholder="Marca">
+        <label for="modelo">Modelo:</label>
+        <input id="modelo" type="text" placeholder="Modelo">
+        <label for="year">Año:</label>
+        <input id="year" type="number" placeholder="Año">
+        <button id="btn_agregar" class="btn-agregar">Agregar Vehículo</button>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Placa</th>
+                <th>Marca</th>
+                <th>Modelo</th>
+                <th>Año</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody id="cuerpoTabla"></tbody>
+    </table>
+
+</body>
+
+</html>
