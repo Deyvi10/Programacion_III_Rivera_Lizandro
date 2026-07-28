@@ -1,14 +1,15 @@
-// dom09_mp.js
-const campoTarea = document.getElementById('campo_tarea');
+const campoReparacion = document.getElementById('campo_reparacion');
 const botonAgregar = document.getElementById('btn_agregar');
-const listaTareas = document.getElementById('lista_tarea');
+const listaReparaciones = document.getElementById('lista_reparaciones');
 
 botonAgregar.addEventListener('click', function() {
-    const tarea = campoTarea.value.trim();
-    if (tarea !== '') {
+    const reparacion = campoReparacion.value.trim();
+    if (reparacion !== '') {
         const li = document.createElement('li');
-        li.textContent = tarea;
-        listaTareas.appendChild(li);
-        campoTarea.value = '';
+        li.textContent = reparacion;
+        listaReparaciones.appendChild(li);
+        campoReparacion.value = '';
     }
 });
+
+console.log("Taller Mecánico: Lista de reparaciones lista");

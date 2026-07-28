@@ -1,18 +1,25 @@
-// dom04-eventos.js
-function mostrarAlerta() {
-    alert('¡Bienvenido al nuevo curso online!');
-}
+const campoPlaca = document.getElementById('campo-placa');
+const btnRegistrar = document.getElementById('btn-registrar');
+const mensaje = document.getElementById('mensaje');
+const historial = document.getElementById('historial');
 
-function agregarCurso() {
-    const lista = document.getElementById('lista-productos1');
-    const nuevoCurso = document.createElement('li');
-    nuevoCurso.textContent = 'Curso de NestJS y TypeScript';
-    lista.appendChild(nuevoCurso);
-}
-
-document.getElementById('btn3').addEventListener('click', () => {
-    const lista2 = document.getElementById('lista-productos2');
-    const nuevoCurso = document.createElement('li');
-    nuevoCurso.textContent = 'Curso de React Avanzado desde evento listener';
-    lista2.appendChild(nuevoCurso);
+btnRegistrar.addEventListener('click', () => {
+    const placa = campoPlaca.value.trim();
+    if (placa !== '') {
+        const li = document.createElement('li');
+        li.textContent = `Vehículo ${placa} registrado - ${new Date().toLocaleTimeString()}`;
+        historial.appendChild(li);
+        mensaje.textContent = `Vehículo ${placa} registrado exitosamente`;
+        campoPlaca.value = '';
+    } else {
+        mensaje.textContent = 'Por favor ingrese una placa válida';
+    }
 });
+
+campoPlaca.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+        btnRegistrar.click();
+    }
+});
+
+console.log("Taller Mecánico: Eventos de taller listos");

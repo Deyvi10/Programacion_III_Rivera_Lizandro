@@ -4,44 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eventos del DOM - Plataforma de Cursos</title>
+    <title>Taller Mecánico - Eventos de Taller</title>
     <script src="dom04-eventos_mp.js" defer></script>
-    <style>
-        .boton {
-            background-color: brown;
-            padding: 0.5em 1em;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .boton2 {
-            background-color: darkcyan;
-            padding: 0.5em 1em;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-    </style>
 </head>
 
 <body>
-    <h1 id="titulo">Eventos del DOM</h1>
-    <h2 onclick="alert('Bienvenido a los cursos online')">Eventos Inline</h2>
-    <button class="boton" id="btn" onclick="mostrarAlerta()">
-         Mostrar Alerta de Curso
-    </button>
+    <h1 id="titulo">Taller Mecánico</h1>
+    <h2>Eventos de Taller</h2>
 
-    <button class="boton2" id="btn2" onclick="agregarCurso()">
-        Inscribir Curso
-    </button>
-    <ul id="lista-productos1"></ul>
+    <input id="campo-placa" type="text" placeholder="Ingrese placa del vehículo">
+    <button id="btn-registrar">Registrar Vehículo</button>
+    <p id="mensaje"></p>
 
-    <button class="boton" id="btn3">
-        Inscribir Curso desde Listener
-    </button>
-    <ul id="lista-productos2"></ul>
+    <ul id="historial"></ul>
+
 </body>
 
 </html>

@@ -3,52 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestión de Instructores - Cursos Online</title>
+    <title>Taller Mecánico - CRUD de Mecánicos</title>
     <script src="dom13-crud-empleados_mp.js" defer></script>
     <style>
         body { font-family: Arial, sans-serif; margin: 20px; }
         h2 { color: black; }
         table { width: 100%; border-collapse: collapse; margin-top: 20px; }
         th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
-        th { background-color: aliceblue; }
-        tr { background-color: antiquewhite; }
-        tr:nth-child(even) { background-color: azure; }
-        .formulario { background-color: aquamarine; border: 1px solid #b0fce8; padding: 20px; margin-top: 20px; }
+        th { background-color: #2196F3; color: white; }
+        tr { background-color: #e3f2fd; }
+        tr:nth-child(even) { background-color: #bbdefb; }
+        .formulario { background-color: #e1f5fe; border: 1px solid #b3e5fc; padding: 20px; margin-top: 20px; }
         .formulario input { width: 150px; padding: 5px; margin-bottom: 8px; }
-        .btn-agregar { padding: 6px 12px; background-color: #086848; color: white; border: none; cursor: pointer; }
-        .btn-agregar:hover { background-color: rgb(8, 104, 72); }
-        .stat-card { display: inline-block; width: 200px; padding: 15px; margin: 10px; background-color: aquamarine; border: 1px solid #b0fce8; border-radius: 5px; text-align: center; }
+        .btn-agregar { padding: 6px 12px; background-color: #1976D2; color: white; border: none; cursor: pointer; }
+        .btn-agregar:hover { background-color: #1565C0; }
+        .stat-card { display: inline-block; width: 200px; padding: 15px; margin: 10px; background-color: #e1f5fe; border: 1px solid #b3e5fc; border-radius: 5px; text-align: center; }
         .stat-card h3 { margin: 0; color: black; }
     </style>
 </head>
 <body>
 
-    <h1>Gestión de Cursos Online</h1>
-    <h2>Directorio de Instructores</h2>
+    <h1>Taller Mecánico</h1>
+    <h2>CRUD de Mecánicos</h2>
     
     <div id="stats">
         <div class="stat-card">
-            <h3>Total Instructores</h3>
-            <p id="totalempleados">0</p>
+            <h3>Total Mecánicos</h3>
+            <p id="totalMecanicos">0</p>
         </div>
         <div class="stat-card">
-            <h3>Honorario Promedio</h3>
-            <p id="promedioSueldos">0</p>
+            <h3>Promedio de Salarios</h3>
+            <p id="promedioSalarios">0</p>
         </div>
     </div>
 
     <div class="formulario">
-        <h3>Registrar nuevo instructor</h3>
+        <h3>Agregar nuevo mecánico</h3>
         <label for="nombre">Nombre:</label>
         <input id="nombre" type="text" placeholder="Nombre">
-        <br>
         <label for="apellido">Apellido:</label>
         <input id="apellido" type="text" placeholder="Apellido">
-        <br>
-        <label for="sueldo">Honorario:</label>
-        <input id="sueldo" type="number" placeholder="Honorario">
-        <br>
-        <button id="btn_agregar" class="btn-agregar">Registrar Instructor</button>
+        <label for="especialidad">Especialidad:</label>
+        <input id="especialidad" type="text" placeholder="Especialidad">
+        <label for="salario">Salario:</label>
+        <input id="salario" type="number" placeholder="Salario">
+        <button id="btn_agregar" class="btn-agregar">Agregar Mecánico</button>
     </div>
 
     <table>
@@ -56,7 +55,8 @@
             <tr>
                 <th>Nombre</th>
                 <th>Apellido</th>
-                <th>Honorario</th>
+                <th>Especialidad</th>
+                <th>Salario</th>
             </tr>
         </thead>
         <tbody id="cuerpoTabla"></tbody>

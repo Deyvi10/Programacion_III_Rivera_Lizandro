@@ -1,60 +1,56 @@
-// dom06-mouse-touch.js
-const circulo = document.getElementById('circulo');
-let colores = ['darkcyan', 'coral', 'mediumseagreen', 'goldenrod', 'slateblue', 'palevioletred'];
+const repuesto = document.getElementById('repuesto');
+let colores = ['red', 'green', 'blue', 'orange', 'purple', 'pink'];
 let colorActual = 0;
-
 let arrastrando = false;
 
-// Cambiar color
 function cambiarColor() {
-   colorActual = (colorActual + 1) % colores.length;
-   circulo.style.background = colores[colorActual];
+    colorActual = (colorActual + 1) % colores.length;
+    repuesto.style.background = colores[colorActual];
 }
 
-// Mover el círculo al punto (centrado)
-function moverCirculo(x, y) {
-   const container = document.getElementById('container');
-   const containerRect = container.getBoundingClientRect();
-   const circuloRect = circulo.getBoundingClientRect();
-   const mitadAncho = circuloRect.width / 2;
-   const mitadAlto = circuloRect.height / 2;
+function moverRepuesto(x, y) {
+    const container = document.getElementById('container');
+    const containerRect = container.getBoundingClientRect();
+    const repuestoRect = repuesto.getBoundingClientRect();
+    const mitadAncho = repuestoRect.width / 2;
+    const mitadAlto = repuestoRect.height / 2;
 
-   const offsetTop = containerRect.top + window.scrollY;
-   const offsetLeft = containerRect.left + window.scrollX;
+    const offsetTop = containerRect.top + window.scrollY;
+    const offsetLeft = containerRect.left + window.scrollX;
 
-   circulo.style.left = (x - offsetLeft - mitadAncho) + 'px';
-   circulo.style.top = (y - offsetTop - mitadAlto) + 'px';
+    repuesto.style.left = (x - offsetLeft - mitadAncho) + 'px';
+    repuesto.style.top = (y - offsetTop - mitadAlto) + 'px';
 }
 
-// Touch Events
-circulo.addEventListener('touchstart', (e) => {
-   e.preventDefault();
-   cambiarColor();
-   arrastrando = true;
+repuesto.addEventListener('touchstart', (e) => {
+    e.preventDefault();
+    cambiarColor();
+    arrastrando = true;
 });
 
 document.addEventListener('touchmove', (e) => {
-   if (!arrastrando) return;
-   const touch = e.touches[0];
-   moverCirculo(touch.pageX, touch.pageY);
+    if (!arrastrando) return;
+    const touch = e.touches[0];
+    moverRepuesto(touch.pageX, touch.pageY);
 });
 
 document.addEventListener('touchend', () => {
-   arrastrando = false;
+    arrastrando = false;
 });
 
-// Mouse Events
-circulo.addEventListener('mousedown', (e) => {
-   e.preventDefault();
-   cambiarColor();
-   arrastrando = true;
+repuesto.addEventListener('mousedown', (e) => {
+    e.preventDefault();
+    cambiarColor();
+    arrastrando = true;
 });
 
 document.addEventListener('mousemove', (e) => {
-   if (!arrastrando) return;
-   moverCirculo(e.clientX, e.clientY);
+    if (!arrastrando) return;
+    moverRepuesto(e.clientX, e.clientY);
 });
 
 document.addEventListener('mouseup', () => {
-   arrastrando = false;
+    arrastrando = false;
 });
+
+console.log("Taller Mecánico: Arrastrar repuesto listo");

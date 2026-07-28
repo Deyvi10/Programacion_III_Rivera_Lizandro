@@ -1,21 +1,22 @@
-// dom05-mouse-touch.js
-const caja = document.getElementById('caja');
-caja.addEventListener('mouseover', () => {
-    caja.style.backgroundColor = 'yellow';
+const vehiculo = document.getElementById('vehiculo');
+vehiculo.addEventListener('mouseover', () => {
+    vehiculo.style.backgroundColor = 'yellow';
 });
-caja.addEventListener('mouseout', () => {
-    caja.style.backgroundColor = 'aliceblue';
-});
-
-caja.addEventListener('click', () => {
-    alert('¡Has hecho clic en la vista previa del curso!');
+vehiculo.addEventListener('mouseout', () => {
+    vehiculo.style.backgroundColor = 'lightgray';
 });
 
-const area = document.getElementById('areaTouch');
-area.addEventListener('touchstart', () => {
-    area.style.backgroundColor = 'green';
+vehiculo.addEventListener('click', () => {
+    alert('¡Vehículo seleccionado para revisión!');
 });
 
-area.addEventListener('touchend', () => {
-    area.style.backgroundColor = 'darkblue';
+const areaHerramienta = document.getElementById('areaHerramienta');
+areaHerramienta.addEventListener('touchstart', () => {
+    areaHerramienta.style.backgroundColor = 'green';
 });
+
+areaHerramienta.addEventListener('touchend', () => {
+    areaHerramienta.style.backgroundColor = 'blue';
+});
+
+console.log("Taller Mecánico: Interacción con vehículos lista");

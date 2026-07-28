@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modificación de Cursos - DOM</title>
+    <title>Taller Mecánico - Modificación de Órdenes</title>
     <script src="dom03-modificaciones_mp.js" defer></script>
-    <style>
-        .boton {
-            background-color: brown;
-            padding: 0.5em 1em;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-    </style>
 </head>
+
 <body>
-    <h1 id="titulo">Modificación de elementos del DOM</h1>
-    <h2>Detalles del curso online</h2>
-    <button id="boton" class="boton">Inscribirse al Curso</button>
-    <a id="link" href="#">Ver temario del curso</a>
+    <h1 id="titulo">Taller Mecánico</h1>
+    <h2>Modificación de Órdenes de Reparación</h2>
+
+    <div id="orden-1" class="orden" style="border: 1px solid #ccc; padding: 10px; margin: 5px;">
+        Orden #001 - Cambio de aceite - Estado: <span id="estado-1">Pendiente</span>
+    </div>
+    <div id="orden-2" class="orden" style="border: 1px solid #ccc; padding: 10px; margin: 5px;">
+        Orden #002 - Alineación - Estado: <span id="estado-2">Pendiente</span>
+    </div>
+
+    <button id="btn-completar-1">Completar Orden #001</button>
+    <button id="btn-completar-2">Completar Orden #002</button>
+
 </body>
+
 </html>

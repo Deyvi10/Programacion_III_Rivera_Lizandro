@@ -1,15 +1,20 @@
-// dom03-modificaciones.js
-document.addEventListener("DOMContentLoaded", 
-    function(){
-        const titulo = document.getElementById("titulo");
-        titulo.textContent = "Modificación de Cursos Online en el DOM";
-        console.log("Título:", titulo);
+const btnCompletar1 = document.getElementById('btn-completar-1');
+const btnCompletar2 = document.getElementById('btn-completar-2');
+const estado1 = document.getElementById('estado-1');
+const estado2 = document.getElementById('estado-2');
+const orden1 = document.getElementById('orden-1');
+const orden2 = document.getElementById('orden-2');
 
-        const link = document.getElementById("link");
-        link.textContent = "Ver temario completo del curso";
-        link.href = "https://www.google.com";
-        console.log("Link:", link);
+btnCompletar1.addEventListener('click', () => {
+    estado1.textContent = 'Completada';
+    estado1.style.color = 'green';
+    orden1.style.backgroundColor = '#d4edda';
+});
 
-        const boton = document.getElementById("boton");
-        boton.textContent = "Inscribirse Ahora";
-    });
+btnCompletar2.addEventListener('click', () => {
+    estado2.textContent = 'Completada';
+    estado2.style.color = 'green';
+    orden2.style.backgroundColor = '#d4edda';
+});
+
+console.log("Taller Mecánico: Modificación de órdenes lista");

@@ -1,22 +1,13 @@
-// dom02-seleccion.js
-document.addEventListener("DOMContentLoaded", 
-    function(){
-        const titulo = document.getElementById("titulo");
-        console.log("Título del curso:", titulo);
+const listaRepuestos = document.getElementById('lista-repuestos');
+const seleccionado = document.getElementById('seleccionado');
 
-        const notas = document.getElementsByClassName("nota");
-        console.log("Notas de los cursos:", notas);
+listaRepuestos.addEventListener('click', (e) => {
+    if (e.target.tagName === 'LI') {
+        const items = listaRepuestos.querySelectorAll('li');
+        items.forEach(item => item.style.backgroundColor = '');
+        e.target.style.backgroundColor = 'lightblue';
+        seleccionado.textContent = `Repuesto seleccionado: ${e.target.textContent}`;
+    }
+});
 
-        const items = document.getElementsByTagName("li");
-        console.log("Lista de estudiantes:", items);
-
-        const primerItem = document.querySelector(".item");
-        console.log("Primer estudiante:", primerItem);
-        
-        const todosLosItems = document.querySelectorAll(".item");
-        console.log("Todos los estudiantes:", todosLosItems);
-
-        Array.from(todosLosItems).forEach(element => {
-            console.log("Estudiante:", element);
-        });
-    });
+console.log("Taller Mecánico: Selección de repuestos lista");

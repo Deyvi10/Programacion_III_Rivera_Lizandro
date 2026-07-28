@@ -1,87 +1,95 @@
-// dom13_mp.js
-const empleados = [
+const mecanicos = [
     {
-        "nombre": "Karla",
-        "apellido": "Mosquera",
-        "sueldo": 450
+        "nombre": "Carlos",
+        "apellido": "Rivera",
+        "especialidad": "Mecánico General",
+        "salario": 1200
     },
     {
-        "nombre": "Allison",
-        "apellido": "Mosquera",
-        "sueldo": 600
+        "nombre": "Pedro",
+        "apellido": "López",
+        "especialidad": "Electricidad Automotriz",
+        "salario": 1500
     },
     {
-        "nombre": "Guillermo",
-        "apellido": "Mosquera",
-        "sueldo": 1000
+        "nombre": "Miguel",
+        "apellido": "Sánchez",
+        "especialidad": "Transmisión",
+        "salario": 1800
     }
 ];
 
-function renderEmpleados() {
+function renderMecanicos() {
     const cuerpoTabla = document.getElementById('cuerpoTabla');
     if (!cuerpoTabla) return;
 
     cuerpoTabla.innerHTML = '';
     
-    empleados.forEach(empleado => {
-        const empleadoElement = document.createElement('tr');
-        empleadoElement.innerHTML = `
-            <td>${empleado.nombre}</td>
-            <td>${empleado.apellido}</td>
-            <td>$${Number(empleado.sueldo).toFixed(2)}</td>
+    mecanicos.forEach(mecanico => {
+        const fila = document.createElement('tr');
+        fila.innerHTML = `
+            <td>${mecanico.nombre}</td>
+            <td>${mecanico.apellido}</td>
+            <td>${mecanico.especialidad}</td>
+            <td>$${Number(mecanico.salario).toFixed(2)}</td>
         `;
-        cuerpoTabla.appendChild(empleadoElement);
+        cuerpoTabla.appendChild(fila);
     });
 
     actualizarEstadisticas();
 }
 
-function agregarEmpleado() {
+function agregarMecanico() {
     const nombreInput = document.getElementById('nombre').value.trim();
     const apellidoInput = document.getElementById('apellido').value.trim();
-    const sueldoInput = document.getElementById('sueldo').value.trim();
+    const especialidadInput = document.getElementById('especialidad').value.trim();
+    const salarioInput = document.getElementById('salario').value.trim();
 
-    if (!nombreInput || !apellidoInput || !sueldoInput) {
+    if (!nombreInput || !apellidoInput || !especialidadInput || !salarioInput) {
         alert('Por favor, complete todos los campos.');
         return;
     }
 
-    const nuevoEmpleado = {
+    const nuevoMecanico = {
         nombre: nombreInput,
         apellido: apellidoInput,
-        sueldo: parseFloat(sueldoInput)
+        especialidad: especialidadInput,
+        salario: parseFloat(salarioInput)
     };
 
-    empleados.push(nuevoEmpleado);
-    renderEmpleados();
+    mecanicos.push(nuevoMecanico);
+    renderMecanicos();
     limpiarFormulario();
 }
 
 function limpiarFormulario() {
     document.getElementById('nombre').value = '';
     document.getElementById('apellido').value = '';
-    document.getElementById('sueldo').value = '';
+    document.getElementById('especialidad').value = '';
+    document.getElementById('salario').value = '';
 }
 
 function actualizarEstadisticas() {
-    const totalempleados = empleados.length;
+    const totalMecanicos = mecanicos.length;
     
-    const promedio = totalempleados > 0 
-        ? (empleados.reduce((sum, emp) => sum + emp.sueldo, 0) / totalempleados).toFixed(2) 
+    const promedio = totalMecanicos > 0 
+        ? (mecanicos.reduce((sum, mec) => sum + mec.salario, 0) / totalMecanicos).toFixed(2) 
         : "0.00";
 
-    const txtTotal = document.getElementById('totalempleados');
-    const txtPromedio = document.getElementById('promedioSueldos');
+    const txtTotal = document.getElementById('totalMecanicos');
+    const txtPromedio = document.getElementById('promedioSalarios');
 
-    if (txtTotal) txtTotal.textContent = totalempleados;
+    if (txtTotal) txtTotal.textContent = totalMecanicos;
     if (txtPromedio) txtPromedio.textContent = promedio;
 }
 
 window.onload = function() {
-    renderEmpleados();
+    renderMecanicos();
 
     const agregarBtn = document.getElementById('btn_agregar');
     if (agregarBtn) {
-        agregarBtn.addEventListener('click', agregarEmpleado);
+        agregarBtn.addEventListener('click', agregarMecanico);
     }
 };
+
+console.log("Taller Mecánico: CRUD de mecánicos listo");

@@ -1,25 +1,20 @@
-// dom07-mouse-touch.js
-const boton = document.getElementById('botonAnimado');
+const boton = document.getElementById('botonReparar');
 
-// Aumentar tamaño
 function agrandar() {
-   boton.style.transform = 'scale(1.2)';
-   boton.style.backgroundColor = 'coral';
+    boton.style.transform = 'scale(1.5)';
 }
 
-// Volver a tamaño normal
 function normalizar() {
-   boton.style.transform = 'scale(1)';
-   boton.style.backgroundColor = 'darkcyan';
+    boton.style.transform = 'scale(1)';
 }
 
-// Mouse events
-boton.addEventListener('mouseenter', agrandar);
-boton.addEventListener('mouseleave', normalizar);
+boton.addEventListener('mouseover', agrandar);
+boton.addEventListener('mouseout', normalizar);
 
-// Touch events
 boton.addEventListener('touchstart', (e) => {
-   e.preventDefault();
-   agrandar();
+    e.preventDefault();
+    agrandar();
 });
 boton.addEventListener('touchend', normalizar);
+
+console.log("Taller Mecánico: Botón de reparación listo");
